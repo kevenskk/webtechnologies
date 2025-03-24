@@ -1,0 +1,817 @@
+/* Styling and elements for home page     */
+
+
+
+.darkblue {
+    background: #202731;
+}
+
+.blue {
+
+    background: #3c31dd;
+}
+
+.dark {
+    background: #0f0f10;
+}
+
+.red {
+    background: #dd3f31;
+}
+
+
+
+.layer1 {
+    background-image: url('./assets/layer1.svg');
+    background-repeat: no-repeat;
+}
+
+.layer2 {
+    background-image: url('./assets/layer2.svg');
+    background-repeat: no-repeat;
+}
+
+.layer4 {
+    background-image: url('./assets/layer6.svg');
+    background-repeat: no-repeat;
+}
+
+
+
+.smallspacer {
+    aspect-ratio: 960/200;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.spacer {
+    aspect-ratio: 960/300;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.flip {
+    transform: rotate(180deg);
+
+}
+
+.blob-motion {
+    position: absolute;
+    transform: translateY(-20%);
+    z-index: 0;
+}
+
+.blob-content {
+    z-index: 1;
+    text-align: center;
+}
+
+
+.wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 181px;
+}
+
+.wave .shape-fill {
+    fill: #3C31DD;
+}
+
+.wave2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave2 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 217px;
+}
+
+.wave2 .shape-fill {
+    fill: #0F0F10;
+}
+
+
+.bubble::after {
+    content: '';
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 85%;
+    background-color: #0f0f10;
+    z-index: -1;
+}
+
+
+
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'montserrat', sans-serif;
+    color: white;
+    background: #202731;
+    overflow-x: hidden;
+    background-repeat: no-repeat;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+
+
+h1 {
+    font-size: 4rem;
+    font-family: 'montserrat', sans-serif;
+
+
+}
+
+
+
+p {
+    font-size: 1.8rem;
+    text-align: left;
+}
+
+.content p {
+    font-size: 16px;
+}
+
+
+
+
+section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 400px;
+    padding: 100px 20vw;
+
+}
+
+* {
+    box-sizing: border-box;
+
+}
+
+
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+h2 {
+    color: white;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive navigation menu */
+
+
+
+/* Logo element navigates back to the homepage */
+.logo {
+    margin: 0;
+    font-size: 2em;
+    padding: 10px;
+}
+
+
+.navmenu {
+    margin-top: 5px;
+}
+
+.logo a,
+.navmenu a {
+    padding: 10px 15px;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+}
+
+.navmenu a {
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.navmenu a:hover {
+    color: #000000;
+}
+
+
+
+
+.header {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    background: #3c31dd;
+}
+
+
+.navmenu a.active {
+    color: #000000;
+}
+
+
+
+
+/* Transition effects and styling for the "a" elements in the navigation bar
+    
+*/
+
+
+a {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: normal;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+    font-weight: bold;
+}
+
+a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+a:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+@media screen and (max-height: 300px) {
+    ul {
+        margin-top: 40px;
+
+    }
+}
+
+/* Media queries are used to resize the navbar according to the device that it is being displayed on */
+
+@media (min-width: 769px) {
+
+    .header,
+    .navmenu {
+        display: flex;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+
+
+
+    }
+}
+
+@media (min-width: 1025px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+
+
+
+/* Responsive CV styling */
+
+
+.cv_wrapper {
+    display: flex;
+    width: 800px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 10px;
+}
+
+.cv_wrapper .cv_left {
+    width: 35%;
+    background: #26252d;
+}
+
+.cv_wrapper .cv_left .cv_image {
+    width: 100%;
+}
+
+.cv_wrapper .cv_left .cv_image img {
+    width: 100%;
+    display: block;
+}
+
+.cv_wrapper .cv_title {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 10px;
+    letter-spacing: 4px;
+}
+
+.cv_wrapper .cv_left .cv_info {
+    color: #84838b;
+}
+
+.cv_wrapper .cv_left .cv_bottom {
+    padding: 20px 30px;
+}
+
+.cv_wrapper .cv_item {
+    padding: 20px 0;
+    border-bottom: 1px solid #0175b2;
+}
+
+.cv_wrapper .cv_item:last-child {
+    border-bottom: 0;
+}
+
+.cv_wrapper .cv_left .cv_namerole {
+    display: none;
+}
+
+.cv_wrapper .cv_namerole .name {
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: 4px;
+}
+
+.cv_wrapper .cv_left .cv_namerole .role {
+    color: #84838b;
+}
+
+.cv_wrapper .cv_left .cv_contact .cv_info:last-child {
+    margin-top: 10px;
+}
+
+.cv_wrapper .cv_left .cv_contact .cv_subtitle {
+    color: #fff;
+    margin-bottom: 2px;
+}
+
+.cv_wrapper .cv_left .cv_skills .skills_list {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.cv_wrapper .cv_left .cv_skills .skills_list .skills_bar p {
+    position: relative;
+    width: 125px;
+    height: 20px;
+    background: #fff;
+}
+
+.cv_wrapper .cv_left .cv_skills .skills_list .skills_bar p span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #0175b2;
+    width: 100%;
+    height: 100%;
+}
+
+.cv_wrapper .cv_right {
+    width: 65%;
+    padding: 20px 40px;
+    color: #26252d;
+}
+
+.cv_wrapper .cv_right .cv_namerole .name {
+    color: #26252d;
+    font-size: 32px;
+}
+
+.cv_wrapper .cv_right .cv_namerole .role {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.cv_wrapper .cv_right .cv_item .cv_title {
+    color: #26252d;
+}
+
+.cv_wrapper .cv_right .cv_data {
+    display: flex;
+}
+
+.cv_wrapper .cv_right .cv_data .year {
+    padding-right: 35px;
+    width: 115px;
+    position: relative;
+}
+
+.cv_wrapper .cv_right .cv_data .content {
+    padding-left: 35px;
+    margin-bottom: 20px;
+    width: calc(100% - 115px);
+}
+
+.cv_wrapper .cv_right .cv_data .year:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border: 1px solid #26252d;
+    border-radius: 50%;
+}
+
+.cv_wrapper .cv_right .cv_data .year:after {
+    content: "";
+    position: absolute;
+    top: 17px;
+    right: 4px;
+    width: 3px;
+    height: 90%;
+    background: #0175b2;
+}
+
+.cv_wrapper .cv_right .cv_data:last-child .year:after {
+    display: none;
+}
+
+.cv_wrapper .cv_right .cv_interests .cv_info {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.cv_wrapper .cv_right .cv_interests .interests .int_icon {
+    font-size: 38px;
+    color: #0175b2;
+    margin-bottom: 10px;
+}
+
+
+@media screen and (max-width: 800px) {
+    .cv_wrapper .cv_right .cv_namerole {
+        display: none;
+    }
+
+    .cv_wrapper .cv_left .cv_namerole {
+        display: block;
+    }
+
+    .cv_wrapper {
+        width: 95%;
+        margin: 10px auto;
+        flex-direction: column;
+    }
+
+    .cv_wrapper .cv_left,
+    .cv_wrapper .cv_right {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 424px) {
+    .cv_wrapper .cv_right {
+        padding: 20px 30px;
+    }
+
+    .cv_wrapper .cv_right .cv_data {
+        flex-direction: column;
+    }
+
+    .cv_wrapper .cv_right .cv_data .year {
+        padding: 0;
+        margin-bottom: 5px;
+        width: 100%;
+        color: #0175b2;
+    }
+
+    .cv_wrapper .cv_right .cv_data .year:before,
+    .cv_wrapper .cv_right .cv_data .year:after {
+        display: none;
+    }
+
+    .cv_wrapper .cv_right .cv_data .content {
+        width: 100%;
+        padding: 0;
+    }
+
+    .cv_wrapper .cv_right .cv_interests .interests .int_icon {
+        font-size: 24px;
+    }
+}
+
+
+
+.content a {
+    padding: 15px 0px;
+    color: black;
+}
+
+.content a:hover {
+    color: aqua;
+}
+
+
+/* Styling for login page   */
+
+
+
+
+.login-page {
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+
+.logincontainer {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(32, 39, 49, 0.13);
+    border-radius: 8px;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(10px);
+
+}
+
+.logincontainer input {
+    font-family: 'Montserrat', sans-serif;
+    outline: 0;
+    background-color: rgba(255, 255, 255, 0.07);
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: white;
+}
+
+.logincontainer input[type="submit"] {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    outline: 0;
+    background: #3c31dd;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: white;
+    font-size: 16px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-right: 10px;
+}
+
+.logincontainer input[type="submit"]:hover,
+.logincontainer input[type="submit"]:active,
+.logincontainer input[type="submit"]:focus {
+    background: #837bea;
+}
+
+::placeholder {
+    color: #e5e5e5;
+}
+
+
+
+/* Styling for submit page */
+
+
+.submit-page {
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+
+.submitcontainer {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(32, 39, 49, 0.13);
+    border-radius: 8px;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(10px);
+
+}
+
+.submitcontainer input {
+    font-family: 'Montserrat', sans-serif;
+    outline: 0;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 300;
+    background-color: rgba(255, 255, 255, 0.07);
+    color: white;
+}
+
+.submitcontainer input[type="submit"] {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    outline: 0;
+    background: #3c31dd;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: white;
+    font-size: 16px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-right: 10px;
+}
+
+.submitcontainer input[type="submit"]:hover,
+.submitcontainer input[type="submit"]:active,
+.submitcontainer input[type="submit"]:focus {
+    background: #3c31dd;
+}
+
+
+.submitcontainer input[type="submit"]:hover,
+.submitcontainer input[type="submit"]:active,
+.submitcontainer input[type="submit"]:focus {
+    background: #837bea;
+}
+
+
+
+/* Styling for list.php    */
+
+.button {
+    padding: 50px;
+    padding-top: 100px;
+    text-align: center;
+}
+
+
+.button button {
+    background: #3c31dd;
+    border: none;
+    color: white;
+    width: 250px;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 5px;
+    font-weight: bold;
+    
+    
+
+}
+
+.button button:hover {
+    background: #837bea;
+    
+
+}
+
+th {
+    text-align: left;
+    padding: 5px;
+    background: #3c31dd;
+    font-family: 'Montserrat' sans-serif;
+    border-radius: 3px;
+}
+
+td {
+    color: white;
+    background-color: rgba(32, 39, 49, 0.80);
+    font-family: 'Montserrat' sans-serif;
+
+}
+
+
+table {
+    width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Montserrat' sans-serif;
+    background-color: rgba(32, 39, 49, 0.80);
+    width: 66vw;
+}
+
+
+/* Styling for Weather forecast page    */
+
+canvas {
+    background: #202731;
+    max-height: 100vh;
+
+
+
+}
+
+.chartcontainer {
+    position: relative;
+    margin: auto;
+    height: 105vh;
+    width: 80vw;
+
+
+}
+
+
+h3 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+
+
+select {
+
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border: 0;
+    border-radius: 0.63rem;
+    margin: auto;
+    width: 20vw;
+    height: 50px;
+    background: #202731;
+    color: white;
+    text-align: center;
+    display: flex;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+
+}
+
+.customselect {
+    display: flex;
+    position: relative;
+}
+
+
+.select-selected {
+    display: none;
+}

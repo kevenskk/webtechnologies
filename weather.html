@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="dailyweatherdata.js"></script>
+    <script src="weatherforecast.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"
+        integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+    <link rel="icon" type="image/x-icon" href="./assets/weatherico.ico">
+    <title>Weather Forecast </title>
+
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <h2 class="logo"><a href="index.html">Web Technologies</a></h2>
+        <ul class="navmenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a class="active" href="about.html">Weather Forecast</a></li>
+            <li><a href="list.php">Publication</a></li>
+            <li><a href="session.php">Login</a></li>
+        </ul>
+    </header>
+
+    <div class="smallspacer layer4"></div>
+
+
+
+
+
+
+
+
+
+
+
+    <h3> Temperature</h3>
+
+    <div class="chartcontainer">
+        <div class="customselect">
+            <select onchange="changeTempType(this) ">
+
+                <option selected disabled>Select Chart Type</option>
+
+                <option value="line">Line</option>
+                <option value="bar">Bar</option>
+                <option value="radar">Radar</option>
+
+
+            </select>
+
+            <select onchange="updateTempColour(this) ">
+
+                <option selected disabled>Select Dataset 1 Colour</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="cyan">Cyan</option>
+                <option value="silver">Silver</option>
+                <option value="yellow">Yellow</option>
+                <option value="purple">Purple</option>
+                <option value="gray">Grey</option>
+                <option value="white">White</option>
+                <option value="lime">Lime</option>
+                <option value="olive">Olive</option>
+                <option value="navy">Navy</option>
+                <option value="teal">Teal</option>
+                <option value="aqua">Aqua</option>
+
+            </select>
+
+            <select onchange="updateTempColour2(this) ">
+                <option selected disabled>Select Dataset 2 Colour</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="cyan">Cyan</option>
+                <option value="silver">Silver</option>
+                <option value="yellow">Yellow</option>
+                <option value="purple">Purple</option>
+                <option value="gray">Grey</option>
+                <option value="white">White</option>
+                <option value="lime">Lime</option>
+                <option value="olive">Olive</option>
+                <option value="navy">Navy</option>
+                <option value="teal">Teal</option>
+                <option value="aqua">Aqua</option>
+
+            </select>
+
+
+        </div>
+
+
+        <canvas id="tempChart"></canvas>
+
+
+
+    </div>
+
+
+    <h3> Wind</h3>
+
+    <div class="chartcontainer">
+
+
+
+        <div class="customselect">
+
+            <select onchange="changeWindType(this) ">
+                <option selected disabled>Select Chart Type</option>
+                <option value="line">Line</option>
+                <option value="bar">Bar</option>
+                <option value="radar">Radar</option>
+            </select>
+
+            <select onchange="updateWindColour(this) ">
+
+                <option selected disabled>Select Dataset 1 Colour</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="cyan">Cyan</option>
+                <option value="silver">Silver</option>
+                <option value="yellow">Yellow</option>
+                <option value="purple">Purple</option>
+                <option value="gray">Grey</option>
+                <option value="white">White</option>
+                <option value="lime">Lime</option>
+                <option value="olive">Olive</option>
+                <option value="navy">Navy</option>
+                <option value="teal">Teal</option>
+                <option value="aqua">Aqua</option>
+
+            </select>
+
+            <select onchange="updateWindColour2(this) ">
+                <option selected disabled>Select Dataset 2 Colour</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="cyan">Cyan</option>
+                <option value="silver">Silver</option>
+                <option value="yellow">Yellow</option>
+                <option value="purple">Purple</option>
+                <option value="gray">Grey</option>
+                <option value="white">White</option>
+                <option value="lime">Lime</option>
+                <option value="olive">Olive</option>
+                <option value="navy">Navy</option>
+                <option value="teal">Teal</option>
+                <option value="aqua">Aqua</option>
+
+            </select>
+
+        </div>
+
+        <canvas id="windChart"></canvas>
+
+    </div>
+
+
+
+    <h3> Humidity</h3>
+
+    <div class="chartcontainer" style="height:110vh">
+
+
+
+
+
+        <div class="customselect">
+
+            <select onchange="changeHumType(this) ">
+                <option selected disabled>Select Chart Type</option>
+                <option value="line">Line</option>
+                <option value="bar">Bar</option>
+                <option value="radar">Radar</option>
+
+
+
+
+            </select>
+
+            <select onchange="updateHumColour(this) ">
+
+                <option selected disabled>Select Dataset 1 Colour</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="cyan">Cyan</option>
+                <option value="silver">Silver</option>
+                <option value="yellow">Yellow</option>
+                <option value="purple">Purple</option>
+                <option value="gray">Grey</option>
+                <option value="white">White</option>
+                <option value="lime">Lime</option>
+                <option value="olive">Olive</option>
+                <option value="navy">Navy</option>
+                <option value="teal">Teal</option>
+                <option value="aqua">Aqua</option>
+
+            </select>
+
+            <select onchange="updateHumColour2(this) ">
+                <option selected disabled>Select Dataset 2 Colour</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="cyan">Cyan</option>
+                <option value="silver">Silver</option>
+                <option value="yellow">Yellow</option>
+                <option value="purple">Purple</option>
+                <option value="gray">Grey</option>
+                <option value="white">White</option>
+                <option value="lime">Lime</option>
+                <option value="olive">Olive</option>
+                <option value="navy">Navy</option>
+                <option value="teal">Teal</option>
+                <option value="aqua">Aqua</option>
+
+            </select>
+        </div>
+
+        <canvas id="humidityChart"></canvas>
+
+    </div>
+
+
+
+</body>
+
+<script>
+
+
+
+
+
+    var forecastStoke = JSON.parse(forecast_stoke);
+    this.dateList = forecastStoke.list.map(list => {
+        return list.dt_txt;
+    });
+
+
+    var forecastLondon = JSON.parse(forecast_london);
+    this.dateList = forecastLondon.list.map(list => {
+        return list.dt_txt;
+    });
+
+    this.temperatureListStoke = forecastStoke.list.map(list => {
+        return list.main.temp;
+    });
+
+    this.temperatureListLondon = forecastLondon.list.map(list => {
+        return list.main.temp;
+    });
+
+    this.windListStoke = forecastStoke.list.map(list => {
+        return list.wind.speed;
+    });
+
+    this.windListLondon = forecastLondon.list.map(list => {
+        return list.wind.speed;
+    });
+
+    this.humidityListStoke = forecastStoke.list.map(list => {
+        return list.main.humidity;
+    });
+
+    this.humidityListLondon = forecastLondon.list.map(list => {
+        return list.main.humidity;
+    });
+
+
+
+    // config for each chart
+    const config = {
+
+        type: 'line',
+        data: {
+            labels: this.dateList,
+            datasets: [
+                {
+                    label: "Stoke-on-Trent",
+                    backgroundColor: "#27D86A",
+                    borderColor: "#27D86A",
+                    fill: false,
+                    data: this.temperatureListStoke
+                },
+                {
+                    label: "London",
+                    backgroundColor: "#3A5FA4",
+                    borderColor: "#3A5FA4",
+                    fill: false,
+                    data: this.temperatureListLondon
+                }
+            ]
+        },
+        options: {
+
+            maintainAspectRatio: false,
+            responsive: true,
+            scales: {
+                y: {
+
+                    beginatZero: true,
+                    ticks: {
+                        callback: function (value, index, ticks) {
+                            return value + '°';
+                        }
+                    }
+
+
+
+                }
+
+            }
+        }
+
+    };
+
+
+
+
+    const config2 = {
+
+        type: "bar",
+        data: {
+            labels: this.dateList,
+            datasets: [
+                {
+                    label: "Stoke-on-Trent",
+                    backgroundColor: "#27D86A",
+                    borderColor: "#27D86A",
+                    fill: false,
+                    data: this.temperatureListStoke
+                },
+                {
+                    label: "London",
+                    backgroundColor: "#3A5FA4",
+                    borderColor: "#3A5FA4",
+                    fill: false,
+                    data: this.temperatureListLondon
+                }
+            ]
+        },
+        options: {
+
+            maintainAspectRatio: false,
+            responsive: true,
+            scales: {
+                y: {
+                    beginatZero: true,
+                    ticks: {
+                        callback: function (value, index, ticks) {
+                            return value + '°';
+                        }
+                    }
+
+
+
+                }
+
+            }
+        }
+
+    };
+
+
+
+
+
+
+    const config3 = {
+        type: 'radar',
+        data: {
+            labels: this.dateList,
+            datasets: [
+                {
+                    label: "Stoke-on-Trent",
+                    backgroundColor: "#27D86A",
+                    borderColor: "#27D86A",
+                    fill: false,
+                    data: this.temperatureListStoke
+                },
+                {
+                    label: "London",
+                    backgroundColor: "#3A5FA4",
+                    borderColor: "#3A5FA4",
+                    fill: false,
+                    data: this.temperatureListLondon
+                }
+            ]
+        },
+        options: {
+
+            maintainAspectRatio: false,
+            responsive: true,
+            elements: {
+                line: {
+                    borderWidth: 3
+                }
+            }
+        },
+    };
+
+
+
+
+
+
+
+    const windConfig = {
+
+        type: "line",
+        data: {
+            labels: this.dateList,
+            datasets: [
+                {
+                    label: "Stoke-on-Trent",
+                    backgroundColor: "#27D86A",
+                    borderColor: "#27D86A",
+                    fill: false,
+                    data: this.windListStoke
+                },
+                {
+                    label: "London",
+                    backgroundColor: "#3A5FA4",
+                    borderColor: "#3A5FA4",
+                    fill: false,
+                    data: this.windListLondon
+                }
+            ]
+        },
+        options: {
+
+            maintainAspectRatio: false,
+            responsive: true,
+            scales: {
+                y: {
+                    beginatZero: true
+                }
+            }
+        }
+    };
+
+    const windConfig2 = {
+
+        type: "bar",
+        data: {
+            labels: this.dateList,
+            datasets: [
+                {
+                    label: "Stoke-on-Trent",
+                    backgroundColor: "#27D86A",
+                    borderColor: "#27D86A",
+                    fill: false,
+                    data: this.windListStoke
+                },
+                {
+                    label: "London",
+                    backgroundColor: "#3A5FA4",
+                    borderColor: "#3A5FA4",
+                    fill: false,
+                    data: this.windListLondon
+                }
+            ]
+        },
+        options: {
+
+            maintainAspectRatio: false,
+            responsive: true,
+            scales: {
+                y: {
+                    beginatZero: true
+                }
+            }
+        }
+    };
+
+    const windConfig3 = {
+        type: 'radar',
+        data: {
+            labels: this.dateList,
+            datasets: [
+                {
+                    label: "Stoke-on-Trent",
+                    backgroundColor: "#27D86A",
+                    borderColor: "#27D86A",
+                    fill: false,
+                    data: this.windListStoke
+                },
+                {
+                    label: "London",
+                    backgroundColor: "#3A5FA4",
+                    borderColor: "#3A5FA4",
+                    fill: false,
+                    data: this.windListLondon
+                }
+            ]
+        },
+        options: {
+
+            maintainAspectRatio: false,
+            responsive: true,
+            elements: {
+                line: {
+                    borderWidth: 3
+                }
+            }
+        },
+    };
+
+
+    const humConfig = {
+
+        type: "line",
+        data: {
+            labels: this.dateList,
+            datasets: [
+                {
+                    label: "Stoke-on-Trent",
+                    backgroundColor: "#27D86A",
+                    borderColor: "#27D86A",
+                    fill: false,
+                    data: this.humidityListStoke
+                },
+                {
+                    label: "London",
+                    backgroundColor: "#3A5FA4",
+                    borderColor: "#3A5FA4",
+                    fill: false,
+                    data: this.humidityListLondon
+                }
+            ]
+        },
+        options: {
+
+            maintainAspectRatio: false,
+            responsive: true,
+            scales: {
+                y: {
+                    beginatZero: true,
+                    ticks: {
+                        callback: function (value, index, ticks) {
+                            return value + '%';
+                        }
+                    }
+
+
+
+                }
+
+            }
+        }
+
+    };
+
+
+
+    const humConfig2 = {
+
+        type: "bar",
+        data: {
+            labels: this.dateList,
+            datasets: [
+                {
+                    label: "Stoke-on-Trent",
+                    backgroundColor: "#27D86A",
+                    borderColor: "#27D86A",
+                    fill: false,
+                    data: this.humidityListStoke
+
+                },
+                {
+                    label: "London",
+                    backgroundColor: "#3A5FA4",
+                    borderColor: "#3A5FA4",
+                    fill: false,
+                    data: this.humidityListLondon
+                }
+            ]
+        },
+        options: {
+
+            maintainAspectRatio: false,
+            responsive: true,
+            scales: {
+                y: {
+                    beginatZero: true,
+                    ticks: {
+                        callback: function (value, index, ticks) {
+                            return value + '%';
+                        }
+                    }
+
+
+
+                }
+
+            }
+        }
+
+    };
+
+
+    const humConfig3 = {
+        type: 'radar',
+        data: {
+            labels: this.dateList,
+            datasets: [
+                {
+                    label: "Stoke-on-Trent",
+                    backgroundColor: "#27D86A",
+                    borderColor: "#27D86A",
+                    fill: false,
+                    data: this.humidityListStoke
+                },
+                {
+                    label: "London",
+                    backgroundColor: "#3A5FA4",
+                    borderColor: "#3A5FA4",
+                    fill: false,
+                    data: this.humidityListLondon
+                }
+            ]
+        },
+        options: {
+
+            maintainAspectRatio: false,
+            responsive: true,
+            elements: {
+                line: {
+                    borderWidth: 3
+                }
+            }
+        },
+    };
+
+
+    Chart.defaults.font.family = 'Verdana';
+    Chart.defaults.font.size = 16;
+    Chart.defaults.color = '#fff';
+    Chart.defaults.borderColor = 'grey';
+
+
+
+
+
+
+
+
+    var ctx = document.getElementById('tempChart').getContext('2d');
+
+    let tempChart = new Chart(ctx,
+        config
+    )
+
+    function changeTempType(chartType) {
+
+        console.log(chartType.value);
+        tempChart.destroy();
+
+
+
+        if (chartType.value === "line") {
+            tempChart = new Chart(
+                document.getElementById('tempChart'),
+                config
+
+            );
+        }
+
+
+
+        if (chartType.value === "bar") {
+            tempChart = new Chart(
+                document.getElementById('tempChart'),
+                config2
+
+            );
+        }
+
+        if (chartType.value === "radar") {
+            tempChart = new Chart(
+                document.getElementById('tempChart'),
+                config3
+
+            );
+        }
+
+
+
+
+    }
+
+
+    function updateTempColour(colour) {
+
+        console.log(colour.value);
+
+        tempChart.config.data.datasets[0].borderColor = colour.value;
+        tempChart.config.data.datasets[0].backgroundColor = colour.value;
+
+
+        tempChart.update();
+    }
+
+
+
+    function updateTempColour2(colour) {
+
+        console.log(colour.value);
+
+        tempChart.config.data.datasets[1].borderColor = colour.value;
+        tempChart.config.data.datasets[1].backgroundColor = colour.value;
+        tempChart.update();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var ctx = document.getElementById('windChart').getContext('2d');
+    let windChart = new Chart(ctx,
+        windConfig
+    )
+
+
+
+    function changeWindType(chartType) {
+
+        console.log(chartType.value);
+        windChart.destroy();
+
+
+
+        if (chartType.value === "line") {
+            windChart = new Chart(
+                document.getElementById('windChart'),
+                windConfig
+            );
+        }
+
+        if (chartType.value === "bar") {
+            windChart = new Chart(
+                document.getElementById('windChart'),
+                windConfig2
+            );
+        }
+
+        if (chartType.value === "radar") {
+            windChart = new Chart(
+                document.getElementById('windChart'),
+                windConfig3
+
+            );
+        }
+
+
+    }
+
+    function updateWindColour(colour) {
+
+        console.log(colour.value);
+
+        windChart.config.data.datasets[0].borderColor = colour.value;
+        windChart.config.data.datasets[0].backgroundColor = colour.value;
+        windChart.update();
+    }
+
+
+
+    function updateWindColour2(colour) {
+
+        console.log(colour.value);
+
+        windChart.config.data.datasets[1].borderColor = colour.value;
+        windChart.config.data.datasets[1].backgroundColor = colour.value;
+        windChart.update();
+    }
+
+
+
+
+
+    var ctx = document.getElementById('humidityChart').getContext('2d');
+    let humidityChart = new Chart(ctx,
+        humConfig
+    )
+
+
+    function changeHumType(chartType) {
+
+        console.log(chartType.value);
+        humidityChart.destroy();
+
+
+
+        if (chartType.value === "line") {
+            humidityChart = new Chart(
+                document.getElementById('humidityChart'),
+                humConfig
+            );
+        }
+
+        if (chartType.value === "bar") {
+            humidityChart = new Chart(
+                document.getElementById('humidityChart'),
+                humConfig2
+            );
+        }
+
+        if (chartType.value === "radar") {
+            humidityChart = new Chart(
+                document.getElementById('humidityChart'),
+                humConfig3
+            );
+        }
+
+
+
+    }
+
+    function updateHumColour(colour) {
+
+        console.log(colour.value);
+
+        humidityChart.config.data.datasets[0].borderColor = colour.value;
+        humidityChart.config.data.datasets[0].backgroundColor = colour.value;
+        humidityChart.update();
+    }
+
+
+
+    function updateHumColour2(colour) {
+
+        console.log(colour.value);
+
+        humidityChart.config.data.datasets[1].borderColor = colour.value;
+        humidityChart.config.data.datasets[1].backgroundColor = colour.value;
+        humidityChart.update();
+    }
+
+
+
+</script>
+
+</html>
+
+
+<div class="smallspacer layer4 flip"></div>
+
+
+</body>
+
+</html>
