@@ -16,6 +16,12 @@
         },
 
         {
+           "src": "/api/session.php",
+            "dest": "/api/session.php"
+
+        },
+
+        {
             "src": "/style.css",
             "dest": "/public/style.css"
         },
