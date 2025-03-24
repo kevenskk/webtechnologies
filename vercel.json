@@ -1,7 +1,7 @@
 {
     "functions": {
-      "api/session.php": {
-        "runtime": "vercel-php@0.6.1"
+        "api/*.php": {
+        "runtime": "vercel-php@0.7.3"
       }
     },
     "routes": [
