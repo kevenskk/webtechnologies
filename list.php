@@ -23,11 +23,13 @@ session_start();
     <style>
     </style>
 
-    <script>
+     
 
+    
+    <script> 
 
-
-
+         
+          // ajax request for displaying the records from the csv file and displaying in HTML table
         $(document).ready(function () {
             $.ajax({
                 url: "records.csv",
@@ -55,33 +57,7 @@ session_start();
         });
 
 
-        $(document).ready(function () {
-            $('#load_data').click(function(){
-            $.ajax({
-                url: "records.csv",
-                dataType: "text",
-                success: function (data) {
-                    var records = data.split('\n');
-                    var table_data = '<table class="table table-bordered table-striped">';
-                    for (var count = 0; count < records.length; count++) {
-                        var cell_data = records[count].split(",");
-                        table_data += '<tr>';
-                        for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
-                            if (count === 0) {
-                                table_data += '<th>' + cell_data[cell_count] + '</th>';
-                            }
-                            else {
-                                table_data += '<td>' + cell_data[cell_count] + '</td>';
-                            }
-                        }
-                        table_data += '</tr>';
-                    }
-                    table_data += '</table>';
-                    $('#publications').html(table_data);
-                }
-            });
-        });
-    });
+       
 
 
 
@@ -113,16 +89,14 @@ session_start();
 
 
 
-
-        <div class="button">
-            <button type="button" name="load_data" id="load_data" class="btn btn-info">Refresh</button>
-        </div>
+     
+        
 
 
         <div id="publications">
         </div>
 
-
+       
 
 
 

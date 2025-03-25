@@ -1,4 +1,6 @@
 <?php session_start();
+error_reporting(error_level: E_ALL & ~E_DEPRECATED & ~E_WARNING);
+
 if (!isset($_SESSION['loggedin']))
     header("Location: session.php");
 if ($_SESSION['loggedin'] === FALSE)

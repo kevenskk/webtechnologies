@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_WARNING);
 session_start();
 if (isset($_SESSION['loggedin']))
    header("Location: submit.php");
